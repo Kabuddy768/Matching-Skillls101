@@ -23,7 +23,7 @@ import { InterviewComponent } from './Recruiter/interview/interview.component';
 import { SkillProfileComponent } from './JobSeeker/skill-profile/skill-profile.component';
 import { JobMatchesComponent } from './JobSeeker/job-matches/job-matches.component';
 import { PortfolioComponent } from './JobSeeker/portfolio/portfolio.component';
-import { InterviewComponent1 } from './JobSeeker/interview/interview.component';
+import { JobInterviewComponent } from './JobSeeker/interview/interview.component';
 import { CvComponent } from './JobSeeker/cv/cv.component';
 import { CareerPathComponent } from './JobSeeker/career-path/career-path.component';
 
@@ -40,7 +40,7 @@ export const routes: Routes = [
             { path: 'job-discovery', component: JobDiscoveryComponent },
             {path:'job-matches', component:JobMatchesComponent},
             {path:'portfolio',component:PortfolioComponent},
-            {path:'interviews',component:InterviewComponent1},
+            {path:'interviews',component:JobInterviewComponent},
             {path:'Cv',component:CvComponent},
             {path:'careerPath', component:CareerPathComponent},
             {path:'skillProfile', component:SkillProfileComponent},
