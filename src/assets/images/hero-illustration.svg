@@ -1,0 +1,47 @@
+<svg width="500" height="400" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Elements -->
+  <rect width="500" height="400" fill="#F8FAFC" rx="20" />
+  
+  <!-- Decorative Shapes -->
+  <circle cx="250" cy="200" r="150" fill="#DBEAFE" opacity="0.5" />
+  <circle cx="250" cy="200" r="100" fill="#EDE9FE" opacity="0.6" />
+  
+  <!-- Document Icon -->
+  <rect x="180" y="120" width="140" height="170" rx="10" fill="white" stroke="#2563EB" stroke-width="3" />
+  <path d="M180 130C180 124.477 184.477 120 190 120H260L320 180V290C320 295.523 315.523 300 310 300H190C184.477 300 180 295.523 180 290V130Z" fill="white" stroke="#2563EB" stroke-width="3" />
+  <path d="M260 120V180H320" stroke="#2563EB" stroke-width="3" />
+  
+  <!-- Skills List -->
+  <rect x="200" y="160" width="70" height="10" rx="5" fill="#BFDBFE" />
+  <rect x="200" y="180" width="100" height="10" rx="5" fill="#BFDBFE" />
+  <rect x="200" y="200" width="90" height="10" rx="5" fill="#BFDBFE" />
+  <rect x="200" y="220" width="60" height="10" rx="5" fill="#BFDBFE" />
+  <rect x="200" y="240" width="80" height="10" rx="5" fill="#BFDBFE" />
+  
+  <!-- Check Marks -->
+  <circle cx="240" cy="160" r="12" fill="#10B981" />
+  <path d="M234 160L238 164L246 156" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <circle cx="270" cy="180" r="12" fill="#10B981" />
+  <path d="M264 180L268 184L276 176" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <circle cx="260" cy="200" r="12" fill="#10B981" />
+  <path d="M254 200L258 204L266 196" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Connecting Lines (Abstract AI Concept) -->
+  <line x1="350" y1="150" x2="400" y2="120" stroke="#2563EB" stroke-width="2" />
+  <line x1="350" y1="200" x2="420" y2="200" stroke="#2563EB" stroke-width="2" />
+  <line x1="350" y1="250" x2="400" y2="280" stroke="#2563EB" stroke-width="2" />
+  
+  <circle cx="400" cy="120" r="15" fill="#EDE9FE" stroke="#6D28D9" stroke-width="2" />
+  <circle cx="420" cy="200" r="15" fill="#DBEAFE" stroke="#2563EB" stroke-width="2" />
+  <circle cx="400" cy="280" r="15" fill="#FEF3C7" stroke="#D97706" stroke-width="2" />
+  
+  <!-- Profile Icon (Person) -->
+  <circle cx="100" cy="170" r="40" fill="#DBEAFE" stroke="#2563EB" stroke-width="2" />
+  <circle cx="100" cy="150" r="15" fill="#2563EB" />
+  <path d="M70 200C70 183.431 83.4315 170 100 170C116.569 170 130 183.431 130 200" stroke="#2563EB" stroke-width="2" />
+  
+  <!-- Connecting Line to Document -->
+  <path d="M140 170H175" stroke="#2563EB" stroke-width="2" stroke-dasharray="4 4" />
+</svg> 

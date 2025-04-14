@@ -1,0 +1,158 @@
+<!-- skill-profile.component.html -->
+<div class="skill-profile-container">
+    <div class="header-section">
+      <div class="title-section">
+        <h1>Your Skill Profile</h1>
+        <p>These are the skills helping you get matched with jobs</p>
+      </div>
+      <button class="add-skill-btn">
+        <span class="plus-icon">+</span>
+        Add Skill
+      </button>
+    </div>
+  
+    <div class="skills-overview">
+      <h2>Skills Overview</h2>
+      
+      <div class="categories-grid">
+        <!-- Frontend Section -->
+        <div class="category-card">
+          <div class="category-header">
+            <div class="category-icon code-icon"></div>
+            <span>Frontend</span>
+          </div>
+          <div class="progress-container">
+            <div class="progress-circle">
+              <div class="progress-value">85%</div>
+            </div>
+          </div>
+          <div class="category-skills">
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">Vue.js</span>
+          </div>
+        </div>
+  
+        <!-- Backend Section -->
+        <div class="category-card">
+          <div class="category-header">
+            <div class="category-icon server-icon"></div>
+            <span>Backend</span>
+          </div>
+          <div class="progress-container">
+            <div class="progress-circle">
+              <div class="progress-value">75%</div>
+            </div>
+          </div>
+          <div class="category-skills">
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">SQL</span>
+          </div>
+        </div>
+  
+        <!-- DevOps Section -->
+        <div class="category-card">
+          <div class="category-header">
+            <div class="category-icon cloud-icon"></div>
+            <span>DevOps</span>
+          </div>
+          <div class="progress-container">
+            <div class="progress-circle">
+              <div class="progress-value">65%</div>
+            </div>
+          </div>
+          <div class="category-skills">
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">CI/CD</span>
+          </div>
+        </div>
+  
+        <!-- Soft Skills Section -->
+        <div class="category-card">
+          <div class="category-header">
+            <div class="category-icon people-icon"></div>
+            <span>Soft Skills</span>
+          </div>
+          <div class="progress-container">
+            <div class="progress-circle">
+              <div class="progress-value">90%</div>
+            </div>
+          </div>
+          <div class="category-skills">
+            <span class="skill-tag">Leadership</span>
+            <span class="skill-tag">Communication</span>
+            <span class="skill-tag">Teamwork</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="your-skills-section">
+      <div class="section-header">
+        <h2>Your Skills</h2>
+        <div class="search-sort">
+          <div class="search-box">
+            <input type="text" placeholder="Search skills" />
+            <div class="search-icon"></div>
+          </div>
+          <div class="sort-dropdown">
+            <span>Sort by</span>
+            <div class="dropdown-icon"></div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="skills-grid">
+        <!-- Individual skill cards -->
+        <div class="skill-card" *ngFor="let skill of skills">
+          <div class="skill-header">
+            <div class="skill-icon">
+              <!-- Icon placeholder -->
+            </div>
+            <span class="skill-name">{{ skill.name }}</span>
+          </div>
+          <div class="skill-progress">
+            <div class="progress-bar">
+              <div class="progress-fill" [style.width]="skill.percentage + '%'"></div>
+            </div>
+            <div class="progress-info">
+              <span class="percentage">{{ skill.percentage }}%</span>
+              <div class="time-info">
+                <span class="time-icon"></span>
+                <span>{{ skill.lastUpdated }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="skill-status" [ngClass]="getStatusClass(skill.status)">{{ skill.status }}</div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="recommended-skills-section">
+      <h2>Recommended Skills</h2>
+      <p>Add these skills to improve your job matches</p>
+  
+      <div class="recommended-grid">
+        <div class="recommended-card" *ngFor="let skill of recommendedSkills">
+          <div class="recommended-header">
+            <div class="skill-icon">
+              <!-- Icon placeholder -->
+            </div>
+            <span class="skill-name">{{ skill.name }}</span>
+          </div>
+          <div class="match-info">
+            <span class="match-icon"></span>
+            <span>+{{ skill.matchPercentage }}% match for {{ skill.forPositions }}</span>
+          </div>
+          <button class="add-skill-btn-outlined">Add Skill</button>
+        </div>
+      </div>
+    </div>
+  
+    <div class="footer">
+      <div class="last-updated">Last updated: {{ lastUpdated }}</div>
+      <button class="export-btn">Export Skills Profile</button>
+    </div>
+  </div>

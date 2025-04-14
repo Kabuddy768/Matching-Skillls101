@@ -1,0 +1,206 @@
+<!-- jobseeker.component.html -->
+<div class="job-seeker-container">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="logo-section">
+      <h2>SkillMatch AI</h2>
+    </div>
+    
+    <div class="nav-menu">
+      <div class="nav-item active">
+        <i class="nav-icon dashboard-icon"></i>
+        <span>Dashboard</span>
+      </div>
+      
+      <div class="nav-item">
+        <i class="nav-icon skills-icon"></i>
+        <!-- <span>Skills Profile</span> -->
+        <a [routerLink]="['/jobseeker/skillProfile']" class="btn btn-outline btn-sm">Skill Profile</a>
+      </div>
+      
+      <div class="nav-item">
+        <i class="nav-icon matches-icon"></i>
+        <!-- <span>Job Matches</span> -->
+        <a [routerLink]="['/jobseeker/job-matches']" class="btn btn-outline btn-sm">Job Matches</a>
+      </div>
+      
+      <div class="nav-item">
+        <i class="nav-icon interviews-icon"></i>
+        <!-- <span>Interviews</span> -->
+        <a [routerLink]="['/jobseeker/interviews']" class="btn btn-outline btn-sm">Interviews</a>
+      </div>
+      
+      <div class="nav-item">
+        <i class="nav-icon portfolio-icon"></i>
+        
+        <a [routerLink]="['/jobseeker/portfolio']" class="btn btn-outline btn-sm">Portfolio</a>
+      </div>
+      
+      <div class="nav-item">
+        <i class="nav-icon cv-icon"></i>
+        <!-- <span>CV Management</span> -->
+        <a [routerLink]="['/jobseeker/Cv']" class="btn btn-outline btn-sm">CV Management</a>
+       
+      </div>
+      
+      <div class="nav-item">
+        <i class="nav-icon career-icon"></i>
+        <!-- <span>Career Paths</span> -->
+        <a [routerLink]="['/jobseeker/careerPath']" class="btn btn-outline btn-sm">Career Paths</a>
+      </div>
+
+      <div class="nav-item">
+        <i class="nav-icon savedJobs-icon"></i>
+        <!-- <span>Career Paths</span> -->
+        <a [routerLink]="['/jobseeker/saved-jobs']" class="btn btn-outline btn-sm">Saved Jobs</a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Header -->
+    <div class="header">
+      <div class="welcome-section">
+        <h1>Welcome back, {{userName}}</h1>
+        <p>Your job matching dashboard</p>
+      </div>
+      
+      <div class="user-section">
+        <div class="notifications">
+          <i class="notification-icon"></i>
+        </div>
+        <div class="user-avatar">
+          <!-- Avatar image placeholder -->
+        </div>
+        <span>Alex Morgan</span>
+      </div>
+    </div>
+    
+    <!-- Stats Cards -->
+    <div class="stats-container">
+      <div class="stat-card">
+        <div class="stat-icon chart-icon"></div>
+        <div class="stat-number">{{jobMatchRate}}%</div>
+        <div class="stat-label">Job Match Rate</div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon briefcase-icon"></div>
+        <div class="stat-number">{{appliedJobs}}</div>
+        <div class="stat-label">Applied Jobs</div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon interview-icon"></div>
+        <div class="stat-number">{{interviews}}</div>
+        <div class="stat-label">Interviews</div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon view-icon"></div>
+        <div class="stat-number">{{profileViews}}</div>
+        <div class="stat-label">Profile Views</div>
+      </div>
+    </div>
+    
+    <!-- Recent Job Matches -->
+    <div class="section">
+      <div class="section-header">
+        <h2>Recent Job Matches</h2>
+        <a href="#" class="view-all">View all <i class="arrow-icon"></i></a>
+      </div>
+      
+      <div class="job-matches-container">
+        <div class="job-card" *ngFor="let job of recentJobMatches">
+          <div class="job-info">
+            <h3>{{job.title}}</h3>
+            <p class="company">{{job.company}}</p>
+            <div class="location">
+              <i class="location-icon"></i>
+              <span>{{job.location}}</span>
+            </div>
+
+            <div class="skills-container">
+              <span class="skill" *ngFor="let skill of job.skills">{{skill}}</span>
+            </div>
+          </div>
+          
+          <div class="job-match">
+            <div class="match-percentage">{{job.matchPercentage}}% Match</div>
+            <button class="apply-btn">Apply Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Upcoming Interviews -->
+    <div class="section">
+      <div class="section-header">
+        <h2>Upcoming Interviews</h2>
+        <a href="#" class="view-all">View all <i class="arrow-icon"></i></a>
+      </div>
+      
+      <div class="interviews-container">
+        <div class="interview-card" *ngFor="let interview of upcomingInterviews">
+          <div class="date-box">
+            <div class="date">{{interview.date}}</div>
+            <div class="month">{{interview.month}}</div>
+          </div>
+          
+          <div class="interview-details">
+            <h3>{{interview.title}}</h3>
+            <p class="company">{{interview.company}}</p>
+            
+            <div class="interview-time">
+              <i class="time-icon"></i>
+              <span>{{interview.time}}</span>
+              <span class="interview-type" [ngClass]="{'technical': interview.type === 'Technical', 'cultural': interview.type === 'Cultural Fit'}">{{interview.type}}</span>
+            </div>
+            
+            <button class="prepare-btn">Prepare</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Career Progress -->
+    <div class="section career-progress">
+      <h2>Career Progress</h2>
+      
+      <div class="progress-container">
+        <div class="skills-development">
+          <h3>Skills Development</h3>
+          
+          <div class="skill-progress" *ngFor="let skill of skillsDevelopment">
+            <div class="skill-name">{{skill.name}}</div>
+            <div class="progress-bar-container">
+              <div class="progress-bar" [style.width]="skill.percentage + '%'"></div>
+            </div>
+            <div class="skill-percentage">{{skill.percentage}}%</div>
+          </div>
+        </div>
+        
+        <div class="application-status">
+          <h3>Application Status</h3>
+          
+          <div class="status-item" *ngFor="let status of applicationStatus">
+            <div class="status-name">{{status.status}}</div>
+            <div class="status-count">{{status.count}}</div>
+          </div>
+        </div>
+        
+        <div class="next-steps">
+          <h3>Next Steps</h3>
+          
+          <div class="step-item" *ngFor="let step of nextSteps; let i = index">
+            <div class="step-checkbox">
+              <i class="circle-icon"></i>
+            </div>
+            <div class="step-description">{{step.task}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

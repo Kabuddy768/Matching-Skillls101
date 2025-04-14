@@ -1,0 +1,195 @@
+<div class="container">
+  <!-- Header -->
+  <header class="page-header">
+    <div class="header-content">
+      <div class="back-nav">
+        <button class="btn-icon" title="Back" routerLink="/admin-dashboard">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <h1>Content Management</h1>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Navigation Tabs -->
+    <nav class="content-tabs">
+      <button 
+        *ngFor="let tab of tabs"
+        [class.active]="activeTab === tab"
+        (click)="activeTab = tab"
+        [title]="tab.charAt(0).toUpperCase() + tab.slice(1)"
+      >
+        {{ tab.charAt(0).toUpperCase() + tab.slice(1) }}
+      </button>
+    </nav>
+
+    <!-- Categories Tab -->
+    <section *ngIf="activeTab === 'categories'" class="content-section">
+      <div class="section-card">
+        <h2>Job Categories</h2>
+        <div class="content-list">
+          <div *ngFor="let category of categories" class="content-item">
+            <div class="item-info">
+              <h3>{{ category.name }}</h3>
+              <p>{{ category.description }}</p>
+              <div class="item-meta">
+                <span class="count">{{ category.count }} jobs</span>
+                <span class="status" [ngClass]="getStatusColor(category.status)">
+                  {{ category.status }}
+                </span>
+              </div>
+            </div>
+            <div class="item-actions">
+              <button class="btn-icon" title="Toggle status" (click)="toggleStatus(category)">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </button>
+              <button class="btn-icon" title="Delete category" (click)="deleteItem(categories, category.id)">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="add-content">
+          <h3>Add New Category</h3>
+          <div class="form-group">
+            <label for="categoryName">Name</label>
+            <input type="text" id="categoryName" [(ngModel)]="newCategory.name">
+          </div>
+          <div class="form-group">
+            <label for="categoryDescription">Description</label>
+            <textarea id="categoryDescription" [(ngModel)]="newCategory.description" rows="3"></textarea>
+          </div>
+          <button class="btn-primary" (click)="addCategory()">Add Category</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Industries Tab -->
+    <section *ngIf="activeTab === 'industries'" class="content-section">
+      <div class="section-card">
+        <h2>Industries</h2>
+        <div class="content-list">
+          <div *ngFor="let industry of industries" class="content-item">
+            <div class="item-info">
+              <h3>{{ industry.name }}</h3>
+              <p>{{ industry.description }}</p>
+              <div class="item-meta">
+                <span class="count">{{ industry.count }} companies</span>
+                <span class="status" [ngClass]="getStatusColor(industry.status)">
+                  {{ industry.status }}
+                </span>
+              </div>
+            </div>
+            <div class="item-actions">
+              <button class="btn-icon" title="Toggle status" (click)="toggleStatus(industry)">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </button>
+              <button class="btn-icon" title="Delete industry" (click)="deleteItem(industries, industry.id)">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="add-content">
+          <h3>Add New Industry</h3>
+          <div class="form-group">
+            <label for="industryName">Name</label>
+            <input type="text" id="industryName" [(ngModel)]="newIndustry.name">
+          </div>
+          <div class="form-group">
+            <label for="industryDescription">Description</label>
+            <textarea id="industryDescription" [(ngModel)]="newIndustry.description" rows="3"></textarea>
+          </div>
+          <button class="btn-primary" (click)="addIndustry()">Add Industry</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Locations Tab -->
+    <section *ngIf="activeTab === 'locations'" class="content-section">
+      <div class="section-card">
+        <h2>Locations</h2>
+        <div class="content-list">
+          <div *ngFor="let location of locations" class="content-item">
+            <div class="item-info">
+              <h3>{{ location.city }}, {{ location.country }}</h3>
+              <div class="item-meta">
+                <span class="count">{{ location.count }} jobs</span>
+                <span class="status" [ngClass]="getStatusColor(location.status)">
+                  {{ location.status }}
+                </span>
+              </div>
+            </div>
+            <div class="item-actions">
+              <button class="btn-icon" title="Toggle status" (click)="toggleStatus(location)">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </button>
+              <button class="btn-icon" title="Delete location" (click)="deleteItem(locations, location.id)">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="add-content">
+          <h3>Add New Location</h3>
+          <div class="form-group">
+            <label for="locationCity">City</label>
+            <input type="text" id="locationCity" [(ngModel)]="newLocation.city">
+          </div>
+          <div class="form-group">
+            <label for="locationCountry">Country</label>
+            <input type="text" id="locationCountry" [(ngModel)]="newLocation.country">
+          </div>
+          <button class="btn-primary" (click)="addLocation()">Add Location</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-navigation">
+    <a class="nav-item" routerLink="/admin-dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+      </svg>
+      <span>Dashboard</span>
+    </a>
+    <a class="nav-item" routerLink="/user-management">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+      </svg>
+      <span>Users</span>
+    </a>
+    <a class="nav-item" routerLink="/system-analytics">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+      </svg>
+      <span>Analytics</span>
+    </a>
+    <a class="nav-item active" routerLink="/content-management">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+      </svg>
+      <span>Content</span>
+    </a>
+  </nav>
+</div> 

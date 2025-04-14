@@ -1,0 +1,33 @@
+<header class="app-header">
+  <div class="container">
+    <div class="header-content">
+      <!-- Logo Section -->
+      <div class="logo">
+        <a [routerLink]="['/']">
+          <span class="logo-text">Skill<span class="highlight">Match</span></span>
+        </a>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="nav-links" [class.open]="menuOpen">
+        <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMenu()">Home</a>
+        <a [routerLink]="['/job-seeker/job-discovery']" routerLinkActive="active" (click)="toggleMenu()">Find Jobs</a>
+        <a [routerLink]="['/recruiter/talent']" routerLinkActive="active" (click)="toggleMenu()">Find Talent</a>
+        <a href="#" (click)="toggleMenu()">About Us</a>
+      </nav>
+
+      <!-- User Actions Menu -->
+      <div class="user-actions">
+        <a [routerLink]="['/sign-in']" class="btn btn-outline btn-sm">Sign In</a>
+        <a [routerLink]="['/sign-up']" class="btn btn-primary btn-sm">Join Free</a>
+        
+        <!-- Menu Toggle for Mobile -->
+        <button class="menu-toggle" (click)="toggleMenu()">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>

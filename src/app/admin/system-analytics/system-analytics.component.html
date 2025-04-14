@@ -1,0 +1,144 @@
+<div class="container">
+  <!-- Header -->
+  <header class="page-header">
+    <div class="header-content">
+      <div class="back-nav">
+        <button class="btn-icon" title="Back" routerLink="/admin-dashboard">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <h1>System Analytics</h1>
+      </div>
+      <div class="time-range-selector">
+        <select 
+          [(ngModel)]="selectedTimeRange" 
+          (change)="onTimeRangeChange(selectedTimeRange)"
+          title="Select time range"
+        >
+          <option *ngFor="let range of timeRanges" [value]="range.value">
+            {{ range.label }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Key Metrics -->
+    <section class="metrics-grid">
+      <div *ngFor="let metric of metrics" class="metric-card">
+        <h3>{{ metric.title }}</h3>
+        <div class="metric-value">{{ metric.value }}</div>
+        <div class="metric-change" [ngClass]="getTrendColor(metric.trend)">
+          {{ getTrendIcon(metric.trend) }} {{ metric.change }}%
+        </div>
+      </div>
+    </section>
+
+    <!-- Charts -->
+    <section class="charts-grid">
+      <div class="chart-card">
+        <h2>User Growth</h2>
+        <div class="chart-container">
+          <!-- Chart will be implemented here -->
+          <div class="chart-placeholder">
+            <p>User Growth Chart</p>
+            <p>Data: {{ userGrowthChart.datasets[0].data.join(', ') }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart-card">
+        <h2>Job Postings</h2>
+        <div class="chart-container">
+          <!-- Chart will be implemented here -->
+          <div class="chart-placeholder">
+            <p>Job Postings Chart</p>
+            <p>Data: {{ jobPostingChart.datasets[0].data.join(', ') }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart-card">
+        <h2>Applications</h2>
+        <div class="chart-container">
+          <!-- Chart will be implemented here -->
+          <div class="chart-placeholder">
+            <p>Applications Chart</p>
+            <p>Data: {{ applicationChart.datasets[0].data.join(', ') }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional Insights -->
+    <section class="insights-grid">
+      <div class="insight-card">
+        <h2>Top Industries</h2>
+        <div class="insight-list">
+          <div class="insight-item">
+            <span>Technology</span>
+            <span class="insight-value">32%</span>
+          </div>
+          <div class="insight-item">
+            <span>Healthcare</span>
+            <span class="insight-value">24%</span>
+          </div>
+          <div class="insight-item">
+            <span>Finance</span>
+            <span class="insight-value">18%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="insight-card">
+        <h2>Top Skills</h2>
+        <div class="insight-list">
+          <div class="insight-item">
+            <span>JavaScript</span>
+            <span class="insight-value">45%</span>
+          </div>
+          <div class="insight-item">
+            <span>Python</span>
+            <span class="insight-value">38%</span>
+          </div>
+          <div class="insight-item">
+            <span>React</span>
+            <span class="insight-value">32%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-navigation">
+    <a class="nav-item" routerLink="/admin-dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+      </svg>
+      <span>Dashboard</span>
+    </a>
+    <a class="nav-item" routerLink="/user-management">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+      </svg>
+      <span>Users</span>
+    </a>
+    <a class="nav-item active" routerLink="/system-analytics">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+      </svg>
+      <span>Analytics</span>
+    </a>
+    <a class="nav-item" routerLink="/admin-settings">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+      </svg>
+      <span>Settings</span>
+    </a>
+  </nav>
+</div> 

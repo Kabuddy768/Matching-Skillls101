@@ -1,0 +1,612 @@
+// .candidate-search-container {
+//     font-family: sans-serif;
+//     padding: 20px;
+  
+//     .header {
+//       text-align: left;
+//       margin-bottom: 20px;
+  
+//       h1 {
+//         font-size: 2em;
+//         margin-bottom: 5px;
+//       }
+  
+//       p {
+//         color: #666;
+//       }
+//     }
+  
+//     .search-bar {
+//       display: flex;
+//       gap: 10px;
+//       margin-bottom: 20px;
+  
+//       input, select, button {
+//         padding: 10px;
+//         border: 1px solid #ccc;
+//         border-radius: 5px;
+//       }
+  
+//       button {
+//         background-color: #007bff;
+//         color: white;
+//         cursor: pointer;
+//       }
+//     }
+  
+//     .ai-matches {
+//       margin-bottom: 20px;
+  
+//       h2 {
+//         margin-bottom: 10px;
+//       }
+  
+//       .match-cards {
+//         display: flex;
+//         gap: 15px;
+  
+//         .match-card {
+//           border: 1px solid #ddd;
+//           border-radius: 8px;
+//           padding: 15px;
+//           width: 200px;
+  
+//           .match-card-content {
+//             .match-score {
+//               font-weight: bold;
+//               font-size: 1.2em;
+//               margin-bottom: 5px;
+//             }
+  
+//             .match-name {
+//               font-weight: bold;
+//               margin-bottom: 5px;
+//             }
+  
+//             .match-title {
+//               color: #666;
+//               margin-bottom: 5px;
+//             }
+  
+//             .match-skills {
+//               span {
+//                 background-color: #f0f0f0;
+//                 padding: 3px 6px;
+//                 border-radius: 3px;
+//                 margin-right: 5px;
+//                 font-size: 0.8em;
+//               }
+//             }
+  
+//             .match-location {
+//               display: flex;
+//               align-items: center;
+//               color: #666;
+//               font-size: 0.9em;
+  
+//               img {
+//                 margin-right: 5px;
+//               }
+//             }
+  
+//             button {
+//               background-color: #f0f0f0;
+//               border: none;
+//               padding: 8px 12px;
+//               border-radius: 5px;
+//               cursor: pointer;
+//               margin-top: 10px;
+//             }
+//           }
+//         }
+//       }
+//     }
+  
+//     .suggested-candidates {
+//       table {
+//         width: 100%;
+//         border-collapse: collapse;
+  
+//         th, td {
+//           border: 1px solid #ddd;
+//           padding: 8px;
+//           text-align: left;
+//         }
+  
+//         th {
+//           background-color: #f2f2f2;
+//         }
+  
+//         button {
+//           background-color: #f0f0f0;
+//           border: none;
+//           padding: 8px 12px;
+//           border-radius: 5px;
+//           cursor: pointer;
+//         }
+//       }
+  
+//       .pagination {
+//         display: flex;
+//         justify-content: space-between;
+//         margin-top: 10px;
+  
+//         .page-controls {
+//           display: flex;
+//           gap: 5px;
+  
+//           button {
+//             padding: 5px 10px;
+//             border: 1px solid #ccc;
+//             border-radius: 3px;
+//             cursor: pointer;
+//           }
+//         }
+//       }
+//     }
+//   }
+// Variables
+$primary-color: #0061cf;
+$secondary-color: #f8f9fa;
+$text-dark: #333;
+$text-muted: #6c757d;
+$success-color: #28a745;
+$border-color: #dee2e6;
+$border-radius: 4px;
+$box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+// Global styles
+.talent-hub {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: $text-dark;
+  background-color: #fff;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+// Header styles
+.talent-hub-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid $border-color;
+  margin-bottom: 20px;
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background-color: $primary-color;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 8px;
+      
+      .icon-user {
+        color: white;
+        font-size: 18px;
+        &::before {
+          content: "\f007"; // FontAwesome user icon
+        }
+      }
+    }
+    
+    .logo-text {
+      font-weight: 600;
+      font-size: 18px;
+    }
+  }
+  
+  .nav-icons {
+    display: flex;
+    gap: 20px;
+    
+    .icon {
+      width: 24px;
+      height: 24px;
+      opacity: 0.6;
+      cursor: pointer;
+      
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// Content sections
+.content {
+  padding: 20px 0;
+}
+
+// Search section
+.search-section {
+  margin-bottom: 40px;
+  
+  h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  
+  .subtitle {
+    font-size: 16px;
+    color: $text-muted;
+    margin-bottom: 24px;
+  }
+  
+  .search-container {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+    
+    .search-input-wrapper {
+      position: relative;
+      flex: 1;
+      
+      .search-icon {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: $text-muted;
+      }
+      
+      .search-input {
+        width: 100%;
+        padding: 12px 12px 12px 36px;
+        border: 1px solid $border-color;
+        border-radius: $border-radius;
+        font-size: 14px;
+        
+        &:focus {
+          outline: none;
+          border-color: $primary-color;
+        }
+      }
+    }
+    
+    .filters {
+      display: flex;
+      gap: 12px;
+      
+      .dropdown {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 16px;
+        min-width: 120px;
+        height: 42px;
+        border: 1px solid $border-color;
+        border-radius: $border-radius;
+        cursor: pointer;
+        
+        .dropdown-arrow {
+          width: 10px;
+          height: 10px;
+          margin-left: 8px;
+          &::after {
+            content: '\25BC';
+            font-size: 10px;
+          }
+        }
+        
+        &:hover {
+          border-color: darken($border-color, 10%);
+        }
+      }
+    }
+    
+    .search-button {
+      padding: 0 24px;
+      background-color: $primary-color;
+      color: white;
+      border: none;
+      border-radius: $border-radius;
+      font-weight: 500;
+      cursor: pointer;
+      
+      &:hover {
+        background-color: darken($primary-color, 5%);
+      }
+    }
+  }
+}
+
+// AI Matches section
+.ai-matches {
+  margin-bottom: 40px;
+  
+  h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  
+  .candidates-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    
+    .candidate-card {
+      position: relative;
+      padding: 20px;
+      border: 1px solid $border-color;
+      border-radius: $border-radius;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      
+      .match-percentage {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: $success-color;
+        font-weight: 500;
+      }
+      
+      .profile-pic-container {
+        margin-bottom: 12px;
+        
+        .profile-pic {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          background-color: #e9ecef;
+          margin: 0 auto;
+        }
+      }
+      
+      .candidate-name {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+      
+      .job-title {
+        color: $text-muted;
+        margin-bottom: 12px;
+        font-size: 14px;
+      }
+      
+      .skills {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 12px;
+        
+        .skill {
+          padding: 4px 10px;
+          border-radius: 20px;
+          font-size: 12px;
+          background-color: $secondary-color;
+          
+          &.django { color: #092e20; }
+          &.python { color: #3572A5; }
+          &.aws { color: #FF9900; }
+          &.java { color: #b07219; }
+          &.sql { color: #E34C26; }
+          &.jwt { color: #000000; }
+          &.nodejs { color: #68A063; }
+          &.docker { color: #0db7ed; }
+          &.s6 { color: #6610f2; }
+        }
+      }
+      
+      .location {
+        display: flex;
+        align-items: center;
+        margin-bottom: 16px;
+        
+        .location-icon {
+          margin-right: 6px;
+          &::before {
+            content: "\f3c5"; // FontAwesome map-marker icon
+          }
+        }
+        
+        .location-text {
+          font-size: 14px;
+          color: $text-muted;
+        }
+      }
+      
+      .view-profile-btn {
+        width: 100%;
+        padding: 8px 0;
+        border: 1px solid $primary-color;
+        border-radius: $border-radius;
+        background-color: transparent;
+        color: $primary-color;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        
+        &:hover {
+          background-color: rgba($primary-color, 0.05);
+        }
+      }
+    }
+  }
+}
+
+// Suggested Candidates section
+.suggested-candidates {
+  margin-bottom: 40px;
+  
+  h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  
+  .candidates-table {
+    width: 100%;
+    border-collapse: collapse;
+    
+    th {
+      text-align: left;
+      padding: 12px 16px;
+      font-weight: 600;
+      border-bottom: 2px solid $border-color;
+    }
+    
+    td {
+      padding: 16px;
+      border-bottom: 1px solid $border-color;
+      
+      &.candidate-info {
+        display: flex;
+        align-items: center;
+        
+        .profile-pic-small {
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          background-color: #e9ecef;
+          margin-right: 12px;
+        }
+      }
+      
+      &.match-score {
+        color: $primary-color;
+        font-weight: 500;
+      }
+      
+      &.skills-list {
+        .skill-pill {
+          display: inline-block;
+          padding: 4px 8px;
+          margin-right: 4px;
+          border-radius: 4px;
+          font-size: 12px;
+          background-color: $secondary-color;
+          
+          &.python { color: #3572A5; }
+          &.django { color: #092e20; }
+          &.java { color: #b07219; }
+          &.sql { color: #E34C26; }
+          &.react { color: #61DAFB; }
+          &.aws { color: #FF9900; }
+          &.flask { color: #000000; }
+          &.postgresql { color: #336791; }
+          &.api { color: #6610f2; }
+        }
+      }
+      
+      &.links {
+        a {
+          color: $primary-color;
+          text-decoration: none;
+          
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+      
+      .view-profile-small {
+        padding: 6px 12px;
+        background-color: transparent;
+        border: 1px solid $primary-color;
+        border-radius: $border-radius;
+        color: $primary-color;
+        cursor: pointer;
+        
+        &:hover {
+          background-color: rgba($primary-color, 0.05);
+        }
+      }
+    }
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    
+    .results-info {
+      font-size: 14px;
+      color: $text-muted;
+    }
+    
+    .pagination-controls {
+      display: flex;
+      gap: 8px;
+      
+      button {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid $border-color;
+        border-radius: $border-radius;
+        background-color: white;
+        cursor: pointer;
+        
+        &.active {
+          background-color: $primary-color;
+          color: white;
+          border-color: $primary-color;
+        }
+        
+        &:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+        
+        &:not(:disabled):hover {
+          border-color: $primary-color;
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 1200px) {
+  .ai-matches .candidates-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .ai-matches .candidates-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .search-container {
+    flex-direction: column;
+    
+    .filters {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .ai-matches .candidates-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .candidates-table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .search-container .filters {
+    grid-template-columns: 1fr;
+  }
+}

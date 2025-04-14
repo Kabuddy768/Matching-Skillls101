@@ -1,0 +1,110 @@
+<div class="cv-container">
+    <div class="header">
+      <h1>Manage Your CV</h1>
+      <p>Create, upload or edit your resume for better job matches.</p>
+    </div>
+  
+    <div class="content">
+      <div class="upload-section">
+        <div class="upload-info">
+          <h2>Upload your CV (PDF, DOCX)</h2>
+          <p>Last uploaded: {{ lastUploaded }}</p>
+          <button class="upload-btn" (click)="uploadNewCV()">
+            <i class="upload-icon"></i>
+            Upload New CV
+          </button>
+        </div>
+        <div class="file-preview">
+          <div class="file-icon"></div>
+          <div class="file-name">{{ fileName }}</div>
+          <div class="file-size">{{ fileSize }}</div>
+          <button class="view-btn" (click)="viewCV()">
+            <i class="view-icon"></i>
+            View CV
+          </button>
+        </div>
+      </div>
+  
+      <div class="build-section">
+        <h2>Build Your CV</h2>
+        <div class="step-progress">
+          <div *ngFor="let step of steps" 
+               [ngClass]="['step', step === currentStep ? 'active' : '', step < currentStep ? 'completed' : '']">
+            {{ step }}
+          </div>
+        </div>
+  
+        <div class="cv-form">
+          <div class="form-item">
+            <i class="personal-icon"></i>
+            <span>Personal Info</span>
+          </div>
+          <div class="form-item">
+            <i class="experience-icon"></i>
+            <span>Experience</span>
+          </div>
+          <div class="form-item">
+            <i class="education-icon"></i>
+            <span>Education</span>
+          </div>
+          <div class="form-item">
+            <i class="skills-icon"></i>
+            <span>Skills</span>
+          </div>
+          <div class="form-item">
+            <i class="certifications-icon"></i>
+            <span>Certifications / Awards</span>
+          </div>
+          <div class="form-item">
+            <i class="preview-icon"></i>
+            <span>Preview & Download</span>
+          </div>
+        </div>
+  
+        <div class="form-actions">
+          <button class="back-btn" (click)="goBack()">Back</button>
+          <button class="save-btn" (click)="saveAndContinue()">Save & Continue</button>
+        </div>
+      </div>
+    </div>
+  
+    <div class="sidebar">
+      <div class="previous-versions">
+        <h2>Previous Versions</h2>
+        <div *ngFor="let version of previousVersions" class="version-item">
+          <div class="version-info">
+            <div class="version-name">{{ version.name }}</div>
+            <div class="version-date">{{ version.date }}</div>
+          </div>
+          <div class="version-actions">
+            <button class="action-btn download" (click)="downloadCV(version)">
+              <i class="download-icon"></i>
+            </button>
+            <button class="action-btn copy" (click)="copyCV(version)">
+              <i class="copy-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+  
+      <div class="help-section">
+        <h2>Need Help?</h2>
+        <div class="help-item">
+          <i class="check-icon"></i>
+          <span>Keep your CV to 1-2 pages.</span>
+        </div>
+        <div class="help-item">
+          <i class="check-icon"></i>
+          <span>Use action verbs.</span>
+        </div>
+        <div class="help-item">
+          <i class="check-icon"></i>
+          <span>Tailor to each job.</span>
+        </div>
+        <a href="#" class="view-guide">
+          View Full Guide
+          <i class="arrow-icon"></i>
+        </a>
+      </div>
+    </div>
+  </div>

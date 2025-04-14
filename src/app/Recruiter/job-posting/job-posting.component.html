@@ -1,0 +1,156 @@
+<!-- job-posting.component.html -->
+<div class="posting-container">
+  <div class="navigation-bar">
+    <span class="nav-item">Dashboard</span>
+    <span class="nav-separator">›</span>
+    <span class="nav-item">Jobs</span>
+    <span class="nav-separator">›</span>
+    <span class="nav-item current">New Posting</span>
+  </div>
+
+  <div class="posting-header">
+    <h1>Post a New Job</h1>
+    <div class="action-buttons">
+      <button class="save-draft-btn">
+        <span class="btn-icon"></span>
+        Save Draft
+      </button>
+      <button class="publish-btn">Publish</button>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <div class="section-header">
+      <h2>Job Details</h2>
+    </div>
+
+    <div class="form-content">
+      <div class="form-group">
+        <label for="jobTitle">Job Title</label>
+        <input type="text" id="jobTitle" class="form-control" value="Python Backend Developer">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group half-width">
+          <label for="employmentType">Employment Type</label>
+          <div class="select-container">
+            <select id="employmentType" class="form-control">
+              <option selected>Full-time</option>
+            </select>
+            <span class="dropdown-icon"></span>
+          </div>
+        </div>
+        <div class="form-group half-width">
+          <label for="experienceLevel">Experience Level</label>
+          <div class="select-container">
+            <select id="experienceLevel" class="form-control">
+              <option selected>Mid-level</option>
+            </select>
+            <span class="dropdown-icon"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group half-width">
+          <label for="location">Location</label>
+          <div class="input-with-icon">
+            <span class="location-icon"></span>
+            <input type="text" id="location" class="form-control with-icon" value="Remote">
+          </div>
+        </div>
+        <div class="form-group half-width">
+          <label for="companyName">Company Name</label>
+          <div class="input-with-icon">
+            <span class="company-icon"></span>
+            <input type="text" id="companyName" class="form-control with-icon" value="Example Corp">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="jobDescription">Job Description</label>
+        <textarea id="jobDescription" class="form-control textarea-large" placeholder="Describe the role and responsibilities..."></textarea>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group half-width">
+          <label for="minSalary">Salary Range (Optional)</label>
+          <div class="input-with-icon">
+            <span class="currency-icon">$</span>
+            <input type="text" id="minSalary" class="form-control with-icon" placeholder="Minimum">
+          </div>
+        </div>
+        <div class="form-group half-width salary-max">
+          <div class="input-with-icon">
+            <span class="currency-icon">$</span>
+            <input type="text" id="maxSalary" class="form-control with-icon" placeholder="Maximum">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="required-skills-header">
+          <label>Required Skills</label>
+          <button class="suggest-skills-btn">
+            <span class="lightning-icon"></span>
+            Suggest Skills
+          </button>
+        </div>
+        <div class="skills-container">
+          <div class="skill-tag">Python</div>
+          <div class="skill-tag">Django</div>
+          <div class="skill-tag">PostgreSQL</div>
+          <div class="skill-tag">REST APIs</div>
+          <div class="skill-tag">Unit Testing</div>
+          <input type="text" class="skill-input" placeholder="Add more skills...">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="responsibilities">Responsibilities & Requirements</label>
+        <textarea id="responsibilities" class="form-control textarea-large" placeholder="List the key responsibilities and requirements..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <div class="section-header">
+      <h2>Application Settings</h2>
+    </div>
+
+    <div class="form-content">
+      <div class="form-row">
+        <div class="form-group half-width">
+          <label for="deadline">Deadline to Apply</label>
+          <div class="input-with-icon date-input">
+            <span class="calendar-icon"></span>
+            <input type="text" id="deadline" class="form-control with-icon" placeholder="Select date">
+          </div>
+        </div>
+        <div class="form-group half-width">
+          <label for="maxApplicants">Max number of applicants (Optional)</label>
+          <div class="input-with-icon">
+            <span class="user-icon"></span>
+            <input type="text" id="maxApplicants" class="form-control with-icon" placeholder="Enter maximum number">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="howToApply">How to apply</label>
+        <div class="select-container">
+          <select id="howToApply" class="form-control">
+            <option selected>Apply through our website</option>
+          </select>
+          <span class="dropdown-icon"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <button class="back-btn">Back</button>
+    <button class="publish-job-btn">Publish Job</button>
+  </div>
+</div>

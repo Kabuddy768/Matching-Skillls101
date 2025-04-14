@@ -1,0 +1,362 @@
+.cv-container {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #333;
+  }
+  
+  .header {
+    width: 100%;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 20px;
+    
+    h1 {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+    
+    p {
+      color: #666;
+      font-size: 16px;
+      margin: 0;
+    }
+  }
+  
+  .content {
+    width: 65%;
+    padding-right: 30px;
+  }
+  
+  .sidebar {
+    width: 35%;
+  }
+  
+  .upload-section {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    
+    .upload-info {
+      flex: 1;
+      
+      h2 {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+      
+      p {
+        color: #666;
+        font-size: 14px;
+        margin-bottom: 16px;
+      }
+    }
+    
+    .file-preview {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      
+      .file-icon {
+        width: 48px;
+        height: 60px;
+        background-color: #3366ff;
+        border-radius: 4px;
+        margin-bottom: 8px;
+      }
+      
+      .file-name {
+        font-size: 14px;
+        font-weight: 500;
+      }
+      
+      .file-size {
+        font-size: 12px;
+        color: #666;
+        margin-bottom: 12px;
+      }
+    }
+  }
+  
+  .upload-btn {
+    display: flex;
+    align-items: center;
+    background-color: #3366ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    
+    .upload-icon {
+      margin-right: 8px;
+    }
+    
+    &:hover {
+      background-color: #2952cc;
+    }
+  }
+  
+  .view-btn {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    color: #3366ff;
+    border: 1px solid #3366ff;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    
+    .view-icon {
+      margin-right: 8px;
+    }
+    
+    &:hover {
+      background-color: #f5f8ff;
+    }
+  }
+  
+  .build-section {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    
+    h2 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+  }
+  
+  .step-progress {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    position: relative;
+    
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: #e0e0e0;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+    
+    .step {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 500;
+      position: relative;
+      z-index: 2;
+      
+      &.active {
+        background-color: #2cd483;
+        color: white;
+      }
+      
+      &.completed {
+        background-color: #2cd483;
+        color: white;
+      }
+    }
+  }
+  
+  .cv-form {
+    .form-item {
+      display: flex;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid #e0e0e0;
+      
+      i {
+        width: 24px;
+        height: 24px;
+        margin-right: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      span {
+        font-size: 16px;
+      }
+      
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+    
+    .back-btn {
+      background-color: #fff;
+      color: #666;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 10px 24px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      
+      &:hover {
+        background-color: #f5f5f5;
+      }
+    }
+    
+    .save-btn {
+      background-color: #3366ff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 24px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      
+      &:hover {
+        background-color: #2952cc;
+      }
+    }
+  }
+  
+  .previous-versions {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    
+    h2 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 16px;
+    }
+    
+    .version-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #e0e0e0;
+      
+      &:last-child {
+        border-bottom: none;
+      }
+      
+      .version-info {
+        .version-name {
+          font-size: 14px;
+          font-weight: 500;
+          margin-bottom: 4px;
+        }
+        
+        .version-date {
+          font-size: 12px;
+          color: #666;
+        }
+      }
+      
+      .version-actions {
+        display: flex;
+        
+        .action-btn {
+          width: 36px;
+          height: 36px;
+          border-radius: 4px;
+          background-color: #fff;
+          border: 1px solid #e0e0e0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-left: 8px;
+          cursor: pointer;
+          
+          &:hover {
+            background-color: #f5f5f5;
+          }
+        }
+      }
+    }
+  }
+  
+  .help-section {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    
+    h2 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 16px;
+    }
+    
+    .help-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+      
+      i.check-icon {
+        width: 20px;
+        height: 20px;
+        background-color: #2cd483;
+        color: white;
+        border-radius: 50%;
+        margin-right: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      span {
+        font-size: 14px;
+      }
+    }
+    
+    .view-guide {
+      display: flex;
+      align-items: center;
+      color: #3366ff;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      margin-top: 16px;
+      
+      .arrow-icon {
+        margin-left: 8px;
+      }
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }

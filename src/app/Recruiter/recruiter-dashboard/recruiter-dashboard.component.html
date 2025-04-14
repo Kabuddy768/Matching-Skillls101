@@ -1,0 +1,204 @@
+<!-- recruiter.component.html -->
+<div class="recruiter-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="logo">
+        <h2 class="brand">SkillMatch</h2>
+      </div>
+      
+      <div class="sidebar-menu">
+        <div class="menu-item active">
+          <i class="icon grid"></i>
+          <span>Dashboard</span>
+        </div>
+        <div class="menu-item">
+          <i class="icon user"></i>
+          <a [routerLink]="['/recruiter/candidate']" class="btn btn-outline btn-sm">Candidates</a>
+          <!-- <span [routerLink]="['/candidates']">Candidates</span> -->
+        </div>
+        <div class="menu-item">
+          <i class="icon briefcase"></i>
+          <span><a [routerLink]="['/recruiter/job-posting']" class="btn btn-outline btn-sm">Job Posting</a></span>
+        </div>
+        <div class="menu-item">
+          <i class="icon calendar"></i>
+          <span><a [routerLink]="['/recruiter/interview']" class="btn btn-outline btn-sm">Interviews</a></span>
+        </div>
+        <div class="menu-item">
+          <i class="icon chart"></i>
+          <span>Analytics</span>
+        </div>
+        
+        <div class="menu-divider"></div>
+        
+        <div class="menu-item">
+          <i class="icon settings"></i>
+          <span>Settings</span>
+        </div>
+        <div class="menu-item">
+          <i class="icon user-circle"></i>
+          <span>Profile</span>
+        </div>
+        <div class="menu-item">
+          <i class="icon help"></i>
+          <span>Help Center</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header -->
+      <div class="header">
+        <div class="search-bar">
+          <i class="icon search"></i>
+          <input type="text" placeholder="Search candidates, jobs, or companies...">
+        </div>
+        
+        <div class="header-actions">
+          <div class="notification-bell">
+            <i class="icon bell"></i>
+            <span class="badge">2</span>
+          </div>
+          <div class="messages">
+            <i class="icon message"></i>
+            <span class="badge">3</span>
+          </div>
+          <div class="user-profile">
+            <!-- Placeholder for user profile image -->
+            <div class="avatar"></div>
+            <span class="user-name">Jane Cooper</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Welcome Section -->
+      <div class="welcome-section">
+        <div>
+          <h1 class="welcome-header">Welcome back, Jane!</h1>
+          <p class="welcome-subtext">Here's what's happening with your recruitment activities today.</p>
+        </div>
+        
+        <div class="action-buttons">
+          <button class="btn btn-secondary">
+            <i class="icon import"></i>
+            Import CVs
+          </button>
+          <button class="btn btn-primary">
+            <i class="icon plus"></i>
+            Post New Job
+          </button>
+        </div>
+      </div>
+      
+      <!-- Stats Cards -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon bg-blue">
+            <i class="icon user-group"></i>
+          </div>
+          <div class="stat-content">
+            <div class="stat-label">Total Candidates</div>
+            <div class="stat-value">1,234</div>
+            <div class="stat-growth positive">
+              <i class="icon arrow-up"></i>
+              +12.5%
+            </div>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon bg-green">
+            <i class="icon briefcase"></i>
+          </div>
+          <div class="stat-content">
+            <div class="stat-label">Open Positions</div>
+            <div class="stat-value">42</div>
+            <div class="stat-growth positive">
+              <i class="icon arrow-up"></i>
+              +5.8%
+            </div>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon bg-yellow">
+            <i class="icon calendar"></i>
+          </div>
+          <div class="stat-content">
+            <div class="stat-label">Interviews Today</div>
+            <div class="stat-value">8</div>
+            <div class="stat-growth negative">
+              <i class="icon arrow-down"></i>
+              -2.3%
+            </div>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon bg-red">
+            <i class="icon clock"></i>
+          </div>
+          <div class="stat-content">
+            <div class="stat-label">Time to Hire</div>
+            <div class="stat-value">12d</div>
+            <div class="stat-growth negative">
+              <i class="icon arrow-down"></i>
+              -8.4%
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- AI Assistant -->
+      <div class="ai-assistant-section">
+        <div class="ai-header">
+          <div class="ai-icon">
+            <i class="icon robot"></i>
+          </div>
+          <h3>AI Recruitment Assistant</h3>
+        </div>
+        
+        <div class="ai-actions">
+          <button class="ai-action-btn">Find top candidates</button>
+          <button class="ai-action-btn">Schedule interviews</button>
+          <button class="ai-action-btn">Screen resumes</button>
+          <button class="ai-action-btn">Draft job descriptions</button>
+        </div>
+        
+        <div class="message-input">
+          <input type="text" placeholder="Type your message...">
+          <button class="send-btn">
+            <i class="icon send"></i>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Active Jobs -->
+      <div class="active-jobs-section">
+        <h3 class="section-title">Active Jobs</h3>
+        
+        <div class="job-cards">
+          <div class="job-card" *ngFor="let job of activeJobs">
+            <div class="job-header">
+              <h4 class="job-title">{{ job.title }}</h4>
+              <p class="job-company">{{ job.company }}</p>
+            </div>
+            
+            <div class="job-skills">
+              <span class="skill-tag" *ngFor="let skill of job.skills">{{ skill }}</span>
+            </div>
+            
+            <div class="job-stats">
+              <div class="job-candidates">
+                <span>{{ job.candidates }} candidates</span>
+              </div>
+              <div class="job-deadline">
+                <span>{{ job.daysLeft }} days left</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

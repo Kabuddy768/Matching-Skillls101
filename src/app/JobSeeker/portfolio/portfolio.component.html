@@ -1,0 +1,97 @@
+<!-- portfolio.component.html -->
+<div class="portfolio-container">
+    <header>
+      <div class="logo">Portfolio</div>
+      <nav>
+        <ul>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+  
+    <section class="profile-section">
+      <div class="profile-container">
+        <div class="profile-image">
+          <!-- Profile image placeholder -->
+          <div class="image-placeholder"></div>
+        </div>
+        <div class="profile-info">
+          <h1>{{developer.name}}</h1>
+          <h2>{{developer.title}}</h2>
+          <p>{{developer.description}}</p>
+          <div class="social-links">
+            <a *ngFor="let link of developer.socialLinks" [href]="link.url" target="_blank" [attr.aria-label]="link.name">
+              <i class="material-icons">{{link.icon}}</i>
+            </a>
+          </div>
+        </div>
+        <div class="profile-actions">
+          <button class="btn primary">View Public Profile</button>
+          <button class="btn secondary">Edit Profile</button>
+        </div>
+      </div>
+    </section>
+  
+    <section id="projects" class="featured-projects">
+      <h2>Featured Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card" *ngFor="let project of featuredProjects">
+          <div class="project-image">
+            <!-- Project image placeholder -->
+            <div class="image-placeholder"></div>
+          </div>
+          <div class="project-info">
+            <h3>{{project.title}}</h3>
+            <div class="tech-tags">
+              <span class="tag" *ngFor="let tech of project.technologies">{{tech}}</span>
+            </div>
+            <p>{{project.description}}</p>
+            <div class="project-actions">
+              <a [href]="project.liveUrl" class="btn primary" target="_blank">View Live</a>
+              <a [href]="project.codeUrl" class="btn secondary" target="_blank">View Code</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <section id="skills" class="skills-section">
+      <h2>Skills & Certifications</h2>
+      <div class="skills-grid">
+        <div class="skill-card" *ngFor="let skill of skills">
+          <div class="skill-icon">
+            <i class="material-icons">{{skill.icon}}</i>
+          </div>
+          <h3>{{skill.category}}</h3>
+          <ul>
+            <li *ngFor="let tech of skill.technologies">{{tech}}</li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="certifications-list">
+        <div class="certification-item" *ngFor="let cert of certifications">
+          <div class="cert-icon">
+            <!-- Certification icon placeholder -->
+            <div class="image-placeholder"></div>
+          </div>
+          <div class="cert-info">
+            <h4>{{cert.title}}</h4>
+            <p>{{cert.issuer}}</p>
+            <p class="issue-date">{{cert.date}}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <footer>
+      <p>&copy; {{currentYear}} Portfolio. All rights reserved.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="LinkedIn"><i class="material-icons">linkedin</i></a>
+        <a href="#" aria-label="GitHub"><i class="material-icons">github</i></a>
+        <a href="#" aria-label="Email"><i class="material-icons">email</i></a>
+      </div>
+    </footer>
+  </div>

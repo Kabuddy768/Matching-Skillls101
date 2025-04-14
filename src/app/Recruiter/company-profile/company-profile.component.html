@@ -1,0 +1,274 @@
+<div class="container">
+  <!-- Header -->
+  <header class="page-header">
+    <div class="header-content">
+      <div class="back-nav">
+        <button class="btn-icon" title="Back" routerLink="/recruiter">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <h1>Company Profile</h1>
+      </div>
+      <button class="btn-primary" (click)="saveChanges()">Save Changes</button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Navigation Tabs -->
+    <nav class="profile-tabs">
+      <button 
+        *ngFor="let tab of tabs"
+        [class.active]="activeTab === tab"
+        (click)="setActiveTab(tab)"
+        [title]="tab.charAt(0).toUpperCase() + tab.slice(1)"
+      >
+        {{ tab.charAt(0).toUpperCase() + tab.slice(1) }}
+      </button>
+    </nav>
+
+    <!-- Overview Tab -->
+    <section *ngIf="activeTab === 'overview'" class="profile-section">
+      <div class="section-card">
+        <h2>Basic Information</h2>
+        <div class="form-group">
+          <label for="companyName">Company Name</label>
+          <input type="text" id="companyName" [(ngModel)]="companyInfo.name">
+        </div>
+        <div class="form-group">
+          <label for="industry">Industry</label>
+          <input type="text" id="industry" [(ngModel)]="companyInfo.industry">
+        </div>
+        <div class="form-group">
+          <label for="size">Company Size</label>
+          <input type="text" id="size" [(ngModel)]="companyInfo.size">
+        </div>
+        <div class="form-group">
+          <label for="founded">Founded</label>
+          <input type="text" id="founded" [(ngModel)]="companyInfo.founded">
+        </div>
+        <div class="form-group">
+          <label for="website">Website</label>
+          <input type="url" id="website" [(ngModel)]="companyInfo.website">
+        </div>
+      </div>
+
+      <div class="section-card">
+        <h2>Company Description</h2>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" [(ngModel)]="companyInfo.description" rows="4"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="mission">Mission Statement</label>
+          <textarea id="mission" [(ngModel)]="companyInfo.mission" rows="3"></textarea>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <h2>Social Media</h2>
+        <div class="social-media-list">
+          <div *ngFor="let social of companyInfo.socialMedia; let i = index" class="social-media-item">
+            <div class="form-group">
+              <label [for]="'platform' + i">Platform</label>
+              <input type="text" [id]="'platform' + i" [(ngModel)]="social.platform">
+            </div>
+            <div class="form-group">
+              <label [for]="'url' + i">URL</label>
+              <input type="url" [id]="'url' + i" [(ngModel)]="social.url">
+            </div>
+            <button class="btn-icon" title="Remove social media" (click)="removeSocialMedia(i)">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <div class="add-social-media">
+            <div class="form-group">
+              <label for="newPlatform">Platform</label>
+              <input type="text" id="newPlatform" [(ngModel)]="newSocialMedia.platform">
+            </div>
+            <div class="form-group">
+              <label for="newUrl">URL</label>
+              <input type="url" id="newUrl" [(ngModel)]="newSocialMedia.url">
+            </div>
+            <button class="btn-primary" (click)="addSocialMedia()">Add Social Media</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Culture Tab -->
+    <section *ngIf="activeTab === 'culture'" class="profile-section">
+      <div class="section-card">
+        <h2>Company Values</h2>
+        <div class="values-list">
+          <div *ngFor="let value of companyInfo.values; let i = index" class="value-item">
+            <input type="text" [(ngModel)]="companyInfo.values[i]">
+            <button class="btn-icon" title="Remove value" (click)="removeValue(i)">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <div class="add-value">
+            <input type="text" [(ngModel)]="newValue" placeholder="Add new value">
+            <button class="btn-primary" (click)="addValue()">Add Value</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <h2>Employee Benefits</h2>
+        <div class="benefits-list">
+          <div *ngFor="let benefit of companyInfo.benefits; let i = index" class="benefit-item">
+            <input type="text" [(ngModel)]="companyInfo.benefits[i]">
+            <button class="btn-icon" title="Remove benefit" (click)="removeBenefit(i)">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <div class="add-benefit">
+            <input type="text" [(ngModel)]="newBenefit" placeholder="Add new benefit">
+            <button class="btn-primary" (click)="addBenefit()">Add Benefit</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Tab -->
+    <section *ngIf="activeTab === 'team'" class="profile-section">
+      <div class="section-card">
+        <h2>Team Members</h2>
+        <div class="team-grid">
+          <div *ngFor="let member of teamMembers; let i = index" class="team-member-card">
+            <div class="member-image">
+              <img [src]="member.imageUrl" [alt]="member.name">
+              <button class="btn-icon" title="Remove team member" (click)="removeTeamMember(i)">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div class="member-info">
+              <div class="form-group">
+                <label [for]="'memberName' + i">Name</label>
+                <input type="text" [id]="'memberName' + i" [(ngModel)]="member.name">
+              </div>
+              <div class="form-group">
+                <label [for]="'memberRole' + i">Role</label>
+                <input type="text" [id]="'memberRole' + i" [(ngModel)]="member.role">
+              </div>
+              <div class="form-group">
+                <label [for]="'memberDepartment' + i">Department</label>
+                <input type="text" [id]="'memberDepartment' + i" [(ngModel)]="member.department">
+              </div>
+              <div class="form-group">
+                <label [for]="'memberBio' + i">Bio</label>
+                <textarea [id]="'memberBio' + i" [(ngModel)]="member.bio" rows="3"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="add-team-member">
+          <h3>Add New Team Member</h3>
+          <div class="form-group">
+            <label for="newMemberName">Name</label>
+            <input type="text" id="newMemberName" [(ngModel)]="newTeamMember.name">
+          </div>
+          <div class="form-group">
+            <label for="newMemberRole">Role</label>
+            <input type="text" id="newMemberRole" [(ngModel)]="newTeamMember.role">
+          </div>
+          <div class="form-group">
+            <label for="newMemberDepartment">Department</label>
+            <input type="text" id="newMemberDepartment" [(ngModel)]="newTeamMember.department">
+          </div>
+          <div class="form-group">
+            <label for="newMemberBio">Bio</label>
+            <textarea id="newMemberBio" [(ngModel)]="newTeamMember.bio" rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="newMemberImage">Image URL</label>
+            <input type="url" id="newMemberImage" [(ngModel)]="newTeamMember.imageUrl">
+          </div>
+          <button class="btn-primary" (click)="addTeamMember()">Add Team Member</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Locations Tab -->
+    <section *ngIf="activeTab === 'locations'" class="profile-section">
+      <div class="section-card">
+        <h2>Office Locations</h2>
+        <div class="locations-list">
+          <div *ngFor="let location of companyInfo.locations; let i = index" class="location-item">
+            <div class="form-group">
+              <label [for]="'city' + i">City</label>
+              <input type="text" [id]="'city' + i" [(ngModel)]="location.city">
+            </div>
+            <div class="form-group">
+              <label [for]="'country' + i">Country</label>
+              <input type="text" [id]="'country' + i" [(ngModel)]="location.country">
+            </div>
+            <div class="form-group">
+              <label [for]="'headquarters' + i">Headquarters</label>
+              <input type="checkbox" [id]="'headquarters' + i" [checked]="location.isHeadquarters" (change)="setHeadquarters(i)">
+            </div>
+            <button class="btn-icon" title="Remove location" (click)="removeLocation(i)">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <div class="add-location">
+            <div class="form-group">
+              <label for="newCity">City</label>
+              <input type="text" id="newCity" [(ngModel)]="newLocation.city">
+            </div>
+            <div class="form-group">
+              <label for="newCountry">Country</label>
+              <input type="text" id="newCountry" [(ngModel)]="newLocation.country">
+            </div>
+            <div class="form-group">
+              <label for="newHeadquarters">Headquarters</label>
+              <input type="checkbox" id="newHeadquarters" [(ngModel)]="newLocation.isHeadquarters">
+            </div>
+            <button class="btn-primary" (click)="addLocation()">Add Location</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-navigation">
+    <a class="nav-item" routerLink="/recruiter">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+      </svg>
+      <span>Dashboard</span>
+    </a>
+    <a class="nav-item" routerLink="/recruiter/job-posting">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+      </svg>
+      <span>Jobs</span>
+    </a>
+    <a class="nav-item" routerLink="/recruiter/candidate-management">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+      </svg>
+      <span>Candidates</span>
+    </a>
+    <a class="nav-item" routerLink="/recruiter/company-profile">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+      </svg>
+      <span>Company</span>
+    </a>
+  </nav>
+</div> 

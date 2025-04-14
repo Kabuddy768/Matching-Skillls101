@@ -1,0 +1,164 @@
+<div class="dashboard-container">
+  <!-- Header -->
+  <header class="header">
+    <div class="logo-area">
+      <div class="logo-box">
+        <div class="logo-placeholder"></div>
+      </div>
+      <h1 class="app-name">SkillMatch AI</h1>
+    </div>
+    <div class="admin-dashboard-title">Admin Dashboard</div>
+    <div class="header-right">
+      <div class="notification-icon">
+        <span class="notification-badge">2</span>
+      </div>
+      <div class="user-profile">
+        <div class="avatar-placeholder"></div>
+        <div class="user-info">
+          <div class="user-name">John Doe</div>
+          <div class="user-role">Admin</div>
+        </div>
+        <span class="dropdown-arrow">▼</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <ul class="nav-menu">
+        <li class="nav-item active">
+          <i class="nav-icon dashboard-icon"></i>
+          <span>Dashboard</span>
+        </li>
+        <li class="nav-item">
+          <i class="nav-icon users-icon"></i>
+          <span>Manage Users</span>
+        </li>
+        <li class="nav-item">
+          <i class="nav-icon jobs-icon"></i>
+          <span>Manage Jobs</span>
+        </li>
+        <li class="nav-item">
+          <i class="nav-icon ai-config-icon"></i>
+          <span>AI Assistant Config</span>
+        </li>
+        <li class="nav-item">
+          <i class="nav-icon portfolios-icon"></i>
+          <span>Manage Portfolios</span>
+        </li>
+        <li class="nav-item">
+          <i class="nav-icon interview-icon"></i>
+          <span>Interview Management</span>
+        </li>
+        <li class="nav-item">
+          <i class="nav-icon cv-review-icon"></i>
+          <span>CV Review & Feedback</span>
+        </li>
+        <li class="nav-item">
+          <i class="nav-icon career-paths-icon"></i>
+          <span>Career Paths Editor</span>
+        </li>
+        <li class="nav-item">
+          <i class="nav-icon applications-icon"></i>
+          <span>Applications Overview</span>
+        </li>
+        <li class="nav-item">
+          <i class="nav-icon content-icon"></i>
+          <span>Content Management</span>
+        </li>
+        <li class="nav-item">
+          <i class="nav-icon settings-icon"></i>
+          <span>Settings</span>
+        </li>
+        <li class="nav-item logout">
+          <i class="nav-icon logout-icon"></i>
+          <span>Logout</span>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-content">
+      <!-- Stats Cards -->
+      <div class="stats-cards">
+        <div class="stat-card">
+          <div class="stat-title">Total Users</div>
+          <div class="stat-value">{{dashboardStats.totalUsers | number}}</div>
+          <div class="stat-change increase">+{{dashboardStats.totalUsersGrowth}}%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-title">Job Posts</div>
+          <div class="stat-value">{{dashboardStats.jobPosts | number}}</div>
+          <div class="stat-change increase">+{{dashboardStats.jobPostsGrowth}}%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-title">AI Tasks</div>
+          <div class="stat-value">{{dashboardStats.aiTasks | number}}</div>
+          <div class="stat-change increase">+{{dashboardStats.aiTasksGrowth}}%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-title">Interviews</div>
+          <div class="stat-value">{{dashboardStats.interviews | number}}</div>
+          <div class="stat-change increase">+{{dashboardStats.interviewsGrowth}}%</div>
+        </div>
+      </div>
+
+      <!-- Charts Section -->
+      <div class="charts-section">
+        <div class="chart-card">
+          <div class="chart-title">User Activity</div>
+          <div class="chart-container" #userActivityChart>
+            <!-- Chart will be rendered here -->
+          </div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-title">CV Feedback</div>
+          <div class="chart-container" #cvFeedbackChart>
+            <!-- Donut chart will be rendered here -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Job Postings Table -->
+      <div class="table-section">
+        <div class="section-title">Recent Job Postings</div>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Job Title</th>
+              <th>Employer</th>
+              <th>Date Posted</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let job of recentJobs">
+              <td>{{job.title}}</td>
+              <td>{{job.employer}}</td>
+              <td>{{job.datePosted}}</td>
+              <td><span class="status {{job.status}}">{{job.status | titlecase}}</span></td>
+              <td class="actions">
+                <button class="edit-btn"><i class="edit-icon"></i></button>
+                <button class="delete-btn"><i class="delete-icon"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- System Alerts -->
+      <div class="alerts-section">
+        <div class="section-title">System Alerts</div>
+        <div class="alerts-list">
+          <div class="alert-item" *ngFor="let alert of systemAlerts">
+            <i class="alert-icon"></i>
+            <span class="alert-message">{{alert}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

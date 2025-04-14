@@ -1,0 +1,151 @@
+<!-- <div class="container">
+    <div class="header">
+      <h1>Create Account</h1>
+      <p class="subtitle">Sign up to get started</p>
+    </div>
+  
+    <form>
+      <div class="form-group">
+        <input type="text" placeholder="Full Name" required />
+      </div>
+      <div class="form-group">
+        <input type="email" placeholder="Email Address" autocomplete="username"  required />
+      </div>
+      <div class="form-group">
+        <input type="password" placeholder="Password"  autocomplete="current-password" required />
+        <span class="password-toggle">👁️</span>
+      </div>
+  
+      <div class="form-group">
+        <button type="submit" class="btn-submit" [routerLink]="['/sign-up']">Sign Up</button>
+      </div>
+    </form>
+  </div> -->
+<!-- signup.component.html -->
+<div class="signup-container">
+  <div class="left-panel">
+    <div class="logo-section">
+      <!-- Logo placeholder -->
+      <div class="logo-placeholder"></div>
+      <span class="brand-name">SkillMatch</span>
+    </div>
+
+    <h2 class="journey-title">Begin Your Skill-Based Journey</h2>
+
+    <div class="option-buttons">
+      <button class="option-button">
+        <div class="icon-placeholder blue-icon"></div>
+        I'm looking for opportunities
+      </button>
+
+      <button class="option-button">
+        <div class="icon-placeholder blue-icon"></div>
+        I'm hiring talent
+      </button>
+    </div>
+
+    <h2 class="profile-title">Create Your SkillMatch Profile</h2>
+
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" formControlName="fullName" placeholder="Enter your full name">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" formControlName="email" placeholder="Enter your email">
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" formControlName="password" placeholder="Create a password">
+        <p class="password-hint">At least 8 characters including numbers and symbols</p>
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm your password">
+      </div>
+
+      <div class="terms-checkbox">
+        <input type="checkbox" id="termsAccepted" formControlName="termsAccepted">
+        <label for="termsAccepted">
+          I agree to SkillMatch AI's <a href="#" class="link">Terms of Service</a> and <a href="#" class="link">Privacy Policy</a>
+        </label>
+      </div>
+
+      <button type="submit" class="create-account-btn">Create Account</button>
+
+      <div class="or-divider">
+        <span>or</span>
+      </div>
+
+      <button type="button" class="social-login-btn google-btn">
+        <span class="social-icon google-icon"></span>
+        Continue with Google
+      </button>
+
+      <button type="button" class="social-login-btn linkedin-btn">
+        <span class="social-icon linkedin-icon"></span>
+        Continue with LinkedIn
+      </button>
+
+      <p class="login-link">
+        Already have an account? <a href="#" class="link">Log In</a>
+      </p>
+    </form>
+  </div>
+
+  <div class="right-panel">
+    <h2 class="why-title">Why SkillMatch AI?</h2>
+
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon blue-icon"></div>
+        <div class="feature-content">
+          <h3>Skill-Based Discovery</h3>
+          <p>Get discovered based on your actual skills, not just your job history</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon blue-icon"></div>
+        <div class="feature-content">
+          <h3>Perfect Match</h3>
+          <p>Connect with opportunities that truly match your abilities</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon blue-icon"></div>
+        <div class="feature-content">
+          <h3>Career Guidance</h3>
+          <p>Receive personalized career path guidance based on your skill profile</p>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <div class="quote-icon"></div>
+        <p class="quote-text">
+          "SkillMatch AI transformed my job search. Instead of endless applications, I found a role that perfectly matched my skills and aspirations."
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar"></div>
+          <div class="author-info">
+            <p class="author-name">Sarah Chen</p>
+            <p class="author-title">Software Engineer at TechCorp</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="security-info">
+        <div class="security-icons">
+          <div class="security-icon"></div>
+          <div class="security-icon"></div>
+        </div>
+        <p class="security-text">Your data is secure with us. We never share your information without permission.</p>
+      </div>
+    </div>
+  </div>
+</div>

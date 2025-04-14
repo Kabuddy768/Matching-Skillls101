@@ -1,0 +1,267 @@
+/* login.component.scss */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f5f7fa;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.login-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 450px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.logo-placeholder {
+  width: 60px;
+  height: 60px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.brand-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.tagline {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.welcome-text {
+  font-size: 28px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  transition: border-color 0.2s;
+  
+  &:focus {
+    outline: none;
+    border-color: #4285f4;
+  }
+}
+
+.password-input-container {
+  position: relative;
+  
+  .toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .eye-icon {
+    width: 20px;
+    height: 20px;
+    background-color: #ccc;
+    mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 6C5.6 6 0 12 0 12s5.6 6 12 6 12-6 12-6-5.6-6-12-6zm0 10c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>');
+    mask-size: cover;
+  }
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  
+  input {
+    margin-right: 8px;
+  }
+  
+  label {
+    margin: 0;
+    font-size: 14px;
+    font-weight: normal;
+  }
+}
+
+.forgot-password {
+  font-size: 14px;
+  color: #4285f4;
+  text-decoration: none;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.login-btn {
+  width: 100%;
+  padding: 0.875rem;
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  
+  &:hover {
+    background-color: #3367d6;
+  }
+}
+
+.divider {
+  position: relative;
+  text-align: center;
+  margin: 1.5rem 0;
+  
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 45%;
+    height: 1px;
+    background-color: #eee;
+  }
+  
+  &::before {
+    left: 0;
+  }
+  
+  &::after {
+    right: 0;
+  }
+  
+  .divider-text {
+    display: inline-block;
+    padding: 0 10px;
+    background-color: white;
+    color: #888;
+    font-size: 14px;
+    position: relative;
+  }
+}
+
+.social-btn {
+  width: 100%;
+  padding: 0.875rem;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-bottom: 1rem;
+  
+  &:hover {
+    background-color: #f8f8f8;
+  }
+  
+  .google-icon, .linkedin-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    background-color: #f0f0f0;
+    border-radius: 2px;
+  }
+}
+
+.signup-prompt {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 14px;
+  color: #666;
+  
+  .create-account-link {
+    color: #4285f4;
+    text-decoration: none;
+    font-weight: 500;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.footer {
+  margin-top: 2rem;
+  width: 100%;
+  text-align: center;
+  
+  .copyright {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    
+    .footer-link {
+      font-size: 12px;
+      color: #666;
+      text-decoration: none;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

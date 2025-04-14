@@ -1,0 +1,307 @@
+:host {
+    display: flex;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #333;
+  }
+  
+  .interview-container {
+    flex: 1;
+    padding: 20px;
+    max-width: 900px;
+  }
+  
+  .header {
+    margin-bottom: 20px;
+  
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0;
+      margin-bottom: 4px;
+    }
+  
+    .subtitle {
+      color: #666;
+      margin: 0;
+      font-size: 16px;
+    }
+  }
+  
+  .view-toggle {
+    display: flex;
+    margin-bottom: 20px;
+  
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      border: none;
+      background-color: #f5f5f5;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      border-radius: 6px;
+      margin-right: 6px;
+  
+      &.active {
+        background-color: #4169e1;
+        color: white;
+      }
+  
+      .icon-list, .icon-calendar {
+        margin-right: 8px;
+      }
+    }
+  }
+  
+  .interviews-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 30px;
+  }
+  
+  .past-interviews-header {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0;
+    }
+  }
+  
+  .interview-card {
+    display: flex;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  
+    .date-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 70px;
+      background-color: #f5f7ff;
+      border-radius: 8px;
+      margin-right: 20px;
+  
+      .date {
+        font-size: 24px;
+        font-weight: 700;
+      }
+  
+      .month {
+        font-size: 12px;
+        color: #666;
+      }
+    }
+  
+    .interview-details {
+      flex: 1;
+  
+      h2 {
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0;
+        margin-bottom: 8px;
+      }
+  
+      .interview-info {
+        display: flex;
+        margin-bottom: 10px;
+  
+        .info-item {
+          display: flex;
+          align-items: center;
+          margin-right: 20px;
+          color: #666;
+          font-size: 14px;
+  
+          span {
+            margin-right: 6px;
+          }
+        }
+      }
+  
+      .tag {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 16px;
+        font-size: 12px;
+        font-weight: 500;
+  
+        &.technical {
+          background-color: #e5f6ff;
+          color: #0077cc;
+        }
+  
+        &.cultural {
+          background-color: #e9ecff;
+          color: #3f51b5;
+        }
+      }
+    }
+  
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+  
+      .button {
+        padding: 8px 20px;
+        border-radius: 6px;
+        font-weight: 500;
+        font-size: 14px;
+        border: none;
+        cursor: pointer;
+  
+        &.primary {
+          background-color: #4169e1;
+          color: white;
+        }
+  
+        &.secondary {
+          background-color: transparent;
+          color: #666;
+          text-align: center;
+        }
+      }
+    }
+  
+    .status {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 500;
+  
+      span {
+        margin-right: 6px;
+      }
+  
+      &.completed {
+        color: #4caf50;
+      }
+  
+      &.rescheduled {
+        color: #ff9800;
+      }
+    }
+  }
+  
+  .preparation-checklist {
+    width: 300px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-left: 20px;
+    align-self: flex-start;
+  
+    h2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0;
+      margin-bottom: 20px;
+    }
+  
+    .checklist-items {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+  
+      .checklist-item {
+        display: flex;
+        align-items: center;
+  
+        input[type="checkbox"] {
+          width: 18px;
+          height: 18px;
+          border: 2px solid #4169e1;
+          border-radius: 4px;
+          margin-right: 10px;
+          cursor: pointer;
+          position: relative;
+          appearance: none;
+  
+          &:checked {
+            background-color: #4169e1;
+  
+            &::after {
+              content: '';
+              position: absolute;
+              left: 5px;
+              top: 2px;
+              width: 5px;
+              height: 10px;
+              border: solid white;
+              border-width: 0 2px 2px 0;
+              transform: rotate(45deg);
+            }
+          }
+        }
+  
+        label {
+          font-size: 14px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  
+  // Icon placeholders - would be replaced with actual icons
+  .icon-list, .icon-calendar, .icon-building, .icon-clock, .icon-location, .icon-check, .icon-refresh {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-color: currentColor;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    opacity: 0.7;
+  }
+  
+  .icon-list {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>');
+  }
+  
+  .icon-calendar {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>');
+  }
+  
+  .icon-building {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="9" y1="22" x2="15" y2="22"></line><line x1="12" y1="18" x2="12" y2="22"></line></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="9" y1="22" x2="15" y2="22"></line><line x1="12" y1="18" x2="12" y2="22"></line></svg>');
+  }
+  
+  .icon-clock {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>');
+  }
+  
+  .icon-location {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>');
+  }
+  
+  .icon-check {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>');
+  }
+  
+  .icon-refresh {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>');
+  }
