@@ -26,7 +26,7 @@ interface ChecklistItem {
   templateUrl: './interview.component.html',
   styleUrl: './interview.component.scss'
 })
-export class InterviewComponent1 implements OnInit {
+export class JobInterviewComponent implements OnInit {
   
   upcomingInterviews: Interview[] = [
     {
