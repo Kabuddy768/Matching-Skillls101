@@ -57,8 +57,8 @@ h3 {
 }
 
 .profile-management-page {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
   min-height: 100vh;
 }
 
@@ -73,9 +73,9 @@ h3 {
 }
 
 .header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .back-nav {
@@ -103,12 +103,12 @@ h3 {
 }
 
 .nav-tab {
-  background: none;
-  border: none;
+    background: none;
+    border: none;
   padding: var(--spacing-sm) var(--spacing-md);
   color: var(--text-secondary);
   font-weight: 500;
-  cursor: pointer;
+    cursor: pointer;
   white-space: nowrap;
   border-radius: var(--radius-sm);
   transition: color 0.2s, background-color 0.2s;
@@ -135,9 +135,9 @@ h3 {
 
 /* Personal Information */
 .profile-picture {
-  display: flex;
+    display: flex;
   flex-direction: column;
-  align-items: center;
+    align-items: center;
   margin-bottom: var(--spacing-lg);
 }
 
@@ -161,7 +161,7 @@ h3 {
 }
 
 .form-group {
-  display: flex;
+    display: flex;
   flex-direction: column;
   gap: var(--spacing-xs);
 }
@@ -220,7 +220,7 @@ h3 {
 
 /* Experience & Education */
 .section-header {
-  display: flex;
+    display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: var(--spacing-lg);
@@ -269,9 +269,9 @@ h3 {
 }
 
 .project-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   margin-bottom: var(--spacing-md);
 }
 
@@ -289,8 +289,8 @@ h3 {
 
 /* Buttons */
 .btn-icon {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
   justify-content: center;
   width: 40px;
   height: 40px;
@@ -312,11 +312,11 @@ h3 {
 }
 
 .btn-text {
-  background: none;
-  border: none;
+    background: none;
+    border: none;
   color: var(--primary);
-  font-weight: 500;
-  cursor: pointer;
+    font-weight: 500;
+    cursor: pointer;
   padding: var(--spacing-xs) var(--spacing-sm);
   border-radius: var(--radius-sm);
   transition: background-color 0.2s;
@@ -413,4 +413,4 @@ h3 {
     gap: var(--spacing-md);
     align-items: flex-start;
   }
-}
+  }

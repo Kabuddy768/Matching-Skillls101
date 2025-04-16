@@ -8,12 +8,12 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="M19 12H5M12 19l-7-7 7-7"/>
             </svg>
-          </button>
-          <h1>Profile Management</h1>
-        </div>
+      </button>
+      <h1>Profile Management</h1>
+    </div>
         <div class="header-actions">
           <button class="btn-text" (click)="updatePersonalInfo()" title="Save all changes">Save Changes</button>
-        </div>
+      </div>
       </div>
     </div>
   </header>
@@ -22,7 +22,7 @@
     <!-- Navigation Tabs -->
     <nav class="profile-nav">
       <div class="nav-tabs">
-        <button 
+      <button 
           *ngFor="let section of sections" 
           [class.active]="activeSection === section.id"
           (click)="setActiveSection(section.id)"
@@ -41,8 +41,8 @@
           <img [src]="personalInfo.profilePicture" alt="Profile Picture">
           <input type="file" accept="image/*" (change)="onFileSelected($event, 'profile')" class="file-input" id="profile-picture-input">
           <label for="profile-picture-input" class="btn-text">Change Photo</label>
-        </div>
-        
+      </div>
+  
         <form class="personal-info-form">
           <div class="form-group">
             <label for="firstName">First Name</label>
@@ -109,9 +109,9 @@
             <div class="add-skill">
               <input type="text" [(ngModel)]="newSkill" placeholder="Add soft skill">
               <button class="btn-primary" (click)="addSkill('soft')" title="Add new soft skill">Add</button>
-            </div>
-          </div>
-
+        </div>
+      </div>
+  
           <!-- Languages -->
           <div class="skills-category">
             <h3>Languages</h3>
@@ -225,10 +225,10 @@
                   <input type="checkbox" [(ngModel)]="edu.current">
                   Currently Studying
                 </label>
-              </div>
-            </div>
           </div>
         </div>
+      </div>
+    </div>
       </section>
 
       <!-- Portfolio Section -->
@@ -236,8 +236,8 @@
         <div class="section-header">
           <h2>Portfolio Projects</h2>
           <button class="btn-primary" (click)="addProject()" title="Add new project">Add Project</button>
-        </div>
-        
+    </div>
+  
         <div class="portfolio-grid">
           <div *ngFor="let project of portfolio" class="portfolio-item">
             <div class="project-header">
@@ -304,4 +304,4 @@
       <span>Profile</span>
     </a>
   </nav>
-</div>
+  </div>
