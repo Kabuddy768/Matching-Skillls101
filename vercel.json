@@ -2,8 +2,11 @@
   "version": 2,
   "builds": [
     {
-      "src": "dist/skillmatch/browser/**",
-      "use": "@vercel/static"
+      "src": "angular.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist/skillmatch/browser"
+      }
     }
   ],
   "routes": [
@@ -12,4 +15,4 @@
       "dest": "/index.html"
     }
   ]
-} 
+}
